@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Usage Statistics",
+    "description": "A CodeBuddy Code style statistics page: tokens, models, tools and activity across local sessions, with an activity heatmap and daily token trend."
+  }
+}

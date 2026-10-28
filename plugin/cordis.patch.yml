@@ -1,0 +1,17 @@
+# dsh-buddy-statistics bundle patch
+#
+# 插入宿主半边（index.js）。Client 半边由 package.json 的 dsh.client 声明，
+# 由 Harness 的浏览器模块表在启动时注入。
+- insert:
+    - id: buddy-stats
+      name: dsh-buddy-statistics
+      config:
+        # 统计结果的内存缓存时间（毫秒）；会话事件到达会自动失效。
+        ttlMs: 20000
+        # 启动后多久开始预热（毫秒）；0 = 不预热，第一次打开页面时现算
+        warmupDelayMs: 5000
+        # 会话摘要缓存落盘位置；'' = ~/.dsh/buddy-statistics/sessions-cache.json，null = 不落盘
+        cacheFile: ''
+        # 可选单价表（每百万 Token，美元），键为模型 id，用于「模型」页显示成本。
+        # 例：{ "deepseek-v4.1-flash": { "input": 0.28, "output": 0.42 } }
+        pricing: {}

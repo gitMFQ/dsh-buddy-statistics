@@ -1,0 +1,11 @@
+# 依赖与构建产物
+node_modules/
+pnpm-lock.yaml
+
+# 逆向调研资料：含第三方产物的代码片段，不随仓库分发
+ref/
+
+# 运行时缓存
+*.log
+*.tmp
+.DS_Store
