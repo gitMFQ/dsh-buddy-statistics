@@ -22,7 +22,7 @@ const ROOT = process.argv[2] || path.join(process.env.DSH_HOME || path.join(proc
 /** 可选基线：开发机上 ref/verify-stats.output.json 的 rootOnly 段。 */
 function readBaseline() {
   try {
-    const file = path.join(import.meta.dirname, '..', '..', 'ref', 'verify-stats.output.json')
+    const file = path.join(import.meta.dirname, '..', 'ref', 'verify-stats.output.json')
     const parsed = JSON.parse(fs.readFileSync(file, 'utf8'))
     const root = parsed && parsed.rootOnly
     if (!root) return null

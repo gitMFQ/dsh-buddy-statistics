@@ -5,7 +5,7 @@
 
 > 给 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）复刻 CodeBuddy Code「统计」页的插件：一页看清本机的 Token、模型、工具与活跃度。
 
-<img src="plugin/icon.svg" width="72" height="72" alt="dsh-buddy-statistics icon">
+<img src="icon.svg" width="72" height="72" alt="dsh-buddy-statistics icon">
 
 装好后侧边栏多一个「统计」图标，点开就是本机用量大盘。数据全部来自本机 DSH 会话日志（`ctx.sessionPersistence`，只读），**不联网、不上报**。
 
@@ -44,7 +44,7 @@ plugin_manager install_bundle  target=<克隆路径>/dsh-buddy-statistics
 
 ## 配置
 
-`plugin/cordis.patch.yml` 里已有默认值，安装后可在 profile 的 `cordis.patch.yml` 覆盖：
+`cordis.patch.yml` 里已有默认值，安装后可在 profile 的 `cordis.patch.yml` 覆盖：
 
 ```yaml
 - insert:
