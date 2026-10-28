@@ -21,22 +21,26 @@
 
 ## 安装
 
-需要已装好 DSH。先克隆仓库：
+仓库根目录就是插件包（`package.json` 在根上），所以可以直接从 GitHub 安装：
+
+```text
+plugin_manager install_bundle  target=github:gitMFQ/dsh-buddy-statistics
+```
+
+装完刷新页面，侧边栏面板列表里会出现「统计」图标（order 40）。
+
+本地开发时可以指向克隆目录（link 安装，改代码即时生效）：
 
 ```bash
 git clone https://github.com/gitMFQ/dsh-buddy-statistics.git
 ```
 
-然后在 Harness 里让 `plugin_manager` 安装 `plugin` 子目录：
-
 ```text
-plugin_manager install_bundle  target=<克隆路径>/dsh-buddy-statistics/plugin
+plugin_manager install_bundle  target=<克隆路径>/dsh-buddy-statistics
 ```
 
-装完刷新页面，侧边栏面板列表里会出现「统计」图标（order 40）。
-
-> 也可以手工把 `plugin/` 复制/软链到 profile 的 `node_modules` 并在 `cordis.patch.yml` 里加一行；
-> 但推荐 `install_bundle`，它会把 bundle 选择、依赖与 patch 一次性处理好。
+> 升级：重新执行一次 `install_bundle`（或 `remove_bundle` 后重装）即可取到最新提交。
+> 从 GitHub 装的是快照，改了本地代码需要重装；只有 link 安装才会即时生效。
 
 ## 配置
 
@@ -95,22 +99,23 @@ plugin_manager install_bundle  target=<克隆路径>/dsh-buddy-statistics/plugin
 
 ```
 .
-├── plugin/                     # 插件本体（bundle 包）
-│   ├── index.js                #   宿主：GET /buddy-stats/data
-│   ├── lib/collect.js          #   采集：sessionPersistence 增量读取 + 两级缓存
-│   ├── lib/aggregate.js        #   聚合：连续天数 / 按天按小时 / 模型与工具排行
-│   ├── client.js               #   浏览器：main 面板 + 侧边栏图标 + 整页渲染
-│   ├── locale/{zh,en}.json     #   插件元数据（插件管理器显示用）
-│   ├── icon.svg                #   插件图标
-│   ├── test/                   #   离线口径对照 + 客户端加载自检
-│   └── README.md               #   实现细节与开发说明
+├── package.json            # bundle 清单：dsh.bundle.patch + dsh.client
+├── cordis.patch.yml        # 插入 buddy-stats 行与默认配置
+├── index.js                # 宿主：GET /buddy-stats/data
+├── lib/
+│   ├── collect.js          #   采集：sessionPersistence 增量读取 + 两级缓存
+│   └── aggregate.js        #   聚合：连续天数 / 按天按小时 / 模型与工具排行
+├── client.js               # 浏览器：main 面板 + 侧边栏图标 + 整页渲染
+├── locale/{zh,en}.json     # 插件元数据（插件管理器显示用）
+├── icon.svg                # 插件图标
+├── test/                   # 离线口径对照 + 客户端加载自检
+├── docs/implementation.md  # 实现细节与维护说明
 └── README.md
 ```
 
 ## 开发与自检
 
 ```bash
-cd plugin
 npm test                   # = fold-check + client-smoke
 node test/fold-check.mjs   # 直接从持久化日志折叠，和基线数字对照（只跑根会话）
 node test/client-smoke.mjs # 加载客户端模块，校验 slot 注册项与卸载

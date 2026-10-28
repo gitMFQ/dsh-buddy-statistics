@@ -2,6 +2,9 @@
 
 用户文档（功能、安装、配置、口径对照）见仓库根目录的 [README](../README.md)。本文只讲实现与维护。
 
+仓库根目录就是插件包：`package.json` 带 `dsh.bundle.patch` 与 `dsh.client`，
+所以 `plugin_manager install_bundle target=github:gitMFQ/dsh-buddy-statistics` 可直接安装。
+
 ## 数据流
 
 ```
@@ -84,7 +87,7 @@ node test/client-smoke.mjs  # 用替身 ctx 校验 slot 注册项、locale 字�
 ```
 
 `fold-check` 如果检测到 `../ref/verify-stats.output.json`（开发机上的基线），
-会顺便打印与基线的差；仓库里不带该文件，只打印数值。
+会顺便打印与基线的差；仓库里不带该文件（`ref/` 已在 `.gitignore` 中），只打印数值。
 
 ## 维护提示
 

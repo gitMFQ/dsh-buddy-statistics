@@ -1,6 +1,6 @@
 {
   "name": "dsh-buddy-statistics",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "DSH 统计插件：复刻 CodeBuddy Code 的统计页，汇总本机会话的 Token、模型与工具使用情况",
@@ -16,6 +16,14 @@
     "用量"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitMFQ/dsh-buddy-statistics.git"
+  },
+  "homepage": "https://github.com/gitMFQ/dsh-buddy-statistics#readme",
+  "bugs": {
+    "url": "https://github.com/gitMFQ/dsh-buddy-statistics/issues"
+  },
   "main": "index.js",
   "exports": {
     ".": "./index.js",
