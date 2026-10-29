@@ -7,6 +7,10 @@
  * 路由：GET /buddy-stats/data[?refresh=1]
  *   - 默认走 20s 内存缓存；refresh=1 强制重新聚合（仍复用增量会话缓存）。
  *
+ * 会话视图：另外向 `ctx.sessionProjections` 注册 `buddyStats` 投影单元
+ * （lib/session-projection.js），供会话页签用 props.useProjection 直接读。
+ * 注册与否只通过 meta.sessionView 上报，绝不阻塞插件启动或全局页。
+ *
  * 数据来源：`ctx.sessionPersistence`（受支持的持久化会话读取通道）。
  * 只读，不写任何会话数据。
  */
@@ -73,12 +77,24 @@ function sendJson(res, status, body) {
   res.end(JSON.stringify(body))
 }
 
+/** 把任意抛出物压成一行错误串（用于 meta.sessionView 诊断）。 */
+function describeError(error) {
+  const message = error && typeof error.message === 'string' ? error.message.trim() : ''
+  return message !== '' ? message : String(error)
+}
+
 export function apply(ctx, config) {
   const options = normalize(config)
   /** 进程内会话摘要缓存：跨刷新复用，只有事件增长时才读增量。 */
   const memo = new Map()
   let cached = null // { at, stats, meta }
   let inflight = null
+  /**
+   * 会话投影的挂载状态（契约 §7 的诊断字段）：
+   * 'registered' | 'unavailable'（缺 sessionProjections 服务）| 'error: …'。
+   * 初始值取 'unavailable'：注册尚未 resolve 前，投影确实还不可用。
+   */
+  let sessionView = 'unavailable'
 
   /** 采集并聚合；并发调用共享同一次工作。 */
   function build(persistence, force) {
@@ -141,7 +157,12 @@ export function apply(ctx, config) {
               sendJson(res, 200, {
                 ok: true,
                 stats: result.stats,
-                meta: { ...result.meta, cacheHit: result.hit, generatedAt: result.at },
+                meta: {
+                  ...result.meta,
+                  cacheHit: result.hit,
+                  generatedAt: result.at,
+                  sessionView,
+                },
               })
             } catch (error) {
               sendJson(res, 500, {
@@ -167,6 +188,28 @@ export function apply(ctx, config) {
         'buddy-stats: warmup',
       )
     }
+  })
+
+  // 会话视图投影：**独立**注入 —— 缺 sessionProjections 只让会话页签不可用，
+  // 不影响 /buddy-stats/data 路由与全局页；注册失败只记进 meta.sessionView，绝不抛到启动路径。
+  // lib/session-projection.js 静态依赖 zod：这里用动态 import，zod 缺失 / 依赖没装全时
+  // 只退化成「会话视图不可用」，而不是把整个插件（含全局页）拖死。
+  ctx.inject(['sessionProjections'], (projectionCtx) => {
+    Promise.resolve()
+      .then(() => import('./lib/session-projection.js'))
+      .then(({ createBuddyStatsDefinition }) =>
+        projectionCtx.sessionProjections.register(
+          createBuddyStatsDefinition({ pricing: options.pricing }),
+        ),
+      )
+      .then(
+        () => {
+          sessionView = 'registered'
+        },
+        (error) => {
+          sessionView = `error: ${describeError(error)}`
+        },
+      )
   })
 
   // 会话事件到达时让内存结果过期：正在使用的会话不必等 TTL 也能刷新。

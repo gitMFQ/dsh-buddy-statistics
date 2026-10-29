@@ -43,6 +43,7 @@ window.__ModuleLoader__.load({
         'stats.timeRange': '统计范围：最近 {days} 天',
         'stats.heatmap.less': '少',
         'stats.heatmap.more': '多',
+        'stats.activity': '活动',
         'stats.days': '天',
         'stats.tokensPerDay': '每日 Token 趋势',
         'stats.allModels': '所有模型',
@@ -73,6 +74,62 @@ window.__ModuleLoader__.load({
         'stats.local.retry': '重试',
         'stats.local.slowHint': '首次统计需要解压本机会话日志，请稍候…',
         'stats.local.sampleHint': '共 {files} 个会话文件 · 用时 {ms}ms',
+
+        // 会话视图（conversation.view）页签：键名统一 stats.session.*
+        'stats.session.tab': '统计',
+        'stats.session.pending': '此会话暂无统计数据',
+        'stats.session.desc': '当前会话的 Token、模型、工具与上下文概况',
+        'stats.session.turns': '回合',
+        'stats.session.steps': '步数',
+        'stats.session.apiMs': '模型耗时',
+        'stats.session.toolMs': '工具耗时',
+        'stats.session.activeMs': '活跃时长',
+        'stats.session.spanMs': '墙钟跨度',
+        'stats.session.cacheWrite': '缓存写入',
+        'stats.session.tokenComposition': 'Token 构成',
+        'stats.session.context': '上下文占用',
+        'stats.session.contextComposition': '上下文组成',
+        'stats.session.systemTokens': '系统提示',
+        'stats.session.toolsTokens': '工具定义',
+        'stats.session.messageTokens': '消息',
+        'stats.session.contextUsage': '{used} / {total}',
+        'stats.session.modelDetail': '模型明细',
+        'stats.session.colCalls': '调用',
+        'stats.session.colTotal': '合计',
+        'stats.session.tools': '工具排行',
+        'stats.session.toolErrors': '工具错误',
+        'stats.session.toolSuccess': '成功率',
+        'stats.session.outcomes': '回合结果',
+        'stats.session.outcome.completed': '完成',
+        'stats.session.outcome.aborted': '中止',
+        'stats.session.outcome.blocked': '阻塞',
+        'stats.session.outcome.error': '出错',
+        'stats.session.outcome.maxTokens': '触顶',
+        'stats.session.outcome.interrupted': '中断',
+        'stats.session.outcome.forked': '派生',
+        'stats.session.files': '文件变更',
+        'stats.session.compactions': '压缩次数',
+        'stats.session.retries': '重试次数',
+        'stats.session.hours': '按小时活动',
+        'stats.session.hourBucket': '{hour}:00 · {count}',
+        'stats.session.meta': '会话信息',
+        'stats.session.metaTitle': '标题',
+        'stats.session.cwd': '工作目录',
+        'stats.session.preset': '预设',
+        'stats.session.origin': '来源',
+        'stats.session.originSubagent': '子代理',
+        'stats.session.originMain': '主会话',
+        'stats.session.parent': '父会话',
+        'stats.session.createdAt': '创建时间',
+        'stats.session.firstActive': '首次活动',
+        'stats.session.lastActive': '最近活动',
+        'stats.session.ttft': '首字延迟',
+        'stats.session.decodeSpeed': '解码速度',
+        'stats.session.latency': '延迟与速度',
+        'stats.session.decodeRate': '{value} tok/s',
+        'stats.session.avgStepMs': '每步均耗时',
+        'stats.session.avgTokensPerStep': '每步均 Token',
+        'stats.session.avgTokensPerTurn': '每回合均 Token',
       },
       en: {
         'stats.panel': 'Statistics',
@@ -96,6 +153,7 @@ window.__ModuleLoader__.load({
         'stats.timeRange': 'Stats from the last {days} days',
         'stats.heatmap.less': 'Less',
         'stats.heatmap.more': 'More',
+        'stats.activity': 'Activity',
         'stats.days': 'days',
         'stats.tokensPerDay': 'Daily token trend',
         'stats.allModels': 'All models',
@@ -126,6 +184,62 @@ window.__ModuleLoader__.load({
         'stats.local.retry': 'Retry',
         'stats.local.slowHint': 'The first run decompresses local session logs, please wait…',
         'stats.local.sampleHint': '{files} session files · {ms}ms',
+
+        // Session view (conversation.view) tab: keys are namespaced stats.session.*
+        'stats.session.tab': 'Statistics',
+        'stats.session.pending': 'No statistics for this session yet',
+        'stats.session.desc': 'Tokens, models, tools and context for the current session',
+        'stats.session.turns': 'Turns',
+        'stats.session.steps': 'Steps',
+        'stats.session.apiMs': 'Model time',
+        'stats.session.toolMs': 'Tool time',
+        'stats.session.activeMs': 'Active time',
+        'stats.session.spanMs': 'Wall span',
+        'stats.session.cacheWrite': 'Cache write',
+        'stats.session.tokenComposition': 'Token composition',
+        'stats.session.context': 'Context usage',
+        'stats.session.contextComposition': 'Context composition',
+        'stats.session.systemTokens': 'System prompt',
+        'stats.session.toolsTokens': 'Tool definitions',
+        'stats.session.messageTokens': 'Messages',
+        'stats.session.contextUsage': '{used} / {total}',
+        'stats.session.modelDetail': 'Model breakdown',
+        'stats.session.colCalls': 'Calls',
+        'stats.session.colTotal': 'Total',
+        'stats.session.tools': 'Top tools',
+        'stats.session.toolErrors': 'Tool errors',
+        'stats.session.toolSuccess': 'Success rate',
+        'stats.session.outcomes': 'Turn outcomes',
+        'stats.session.outcome.completed': 'Completed',
+        'stats.session.outcome.aborted': 'Aborted',
+        'stats.session.outcome.blocked': 'Blocked',
+        'stats.session.outcome.error': 'Error',
+        'stats.session.outcome.maxTokens': 'Max tokens',
+        'stats.session.outcome.interrupted': 'Interrupted',
+        'stats.session.outcome.forked': 'Forked',
+        'stats.session.files': 'File changes',
+        'stats.session.compactions': 'Compactions',
+        'stats.session.retries': 'Retries',
+        'stats.session.hours': 'Activity by hour',
+        'stats.session.hourBucket': '{hour}:00 · {count}',
+        'stats.session.meta': 'Session info',
+        'stats.session.metaTitle': 'Title',
+        'stats.session.cwd': 'Working directory',
+        'stats.session.preset': 'Preset',
+        'stats.session.origin': 'Origin',
+        'stats.session.originSubagent': 'Subagent',
+        'stats.session.originMain': 'Main session',
+        'stats.session.parent': 'Parent session',
+        'stats.session.createdAt': 'Created',
+        'stats.session.firstActive': 'First activity',
+        'stats.session.lastActive': 'Last activity',
+        'stats.session.ttft': 'First token',
+        'stats.session.decodeSpeed': 'Decode speed',
+        'stats.session.latency': 'Latency & speed',
+        'stats.session.decodeRate': '{value} tok/s',
+        'stats.session.avgStepMs': 'Avg step time',
+        'stats.session.avgTokensPerStep': 'Avg tokens/step',
+        'stats.session.avgTokensPerTurn': 'Avg tokens/turn',
       },
     }
 
@@ -1343,6 +1457,878 @@ window.__ModuleLoader__.load({
       )
     }
 
+    // ══ 会话视图：conversation.view 的「统计」页签 ══════════════════════════
+    //
+    // 数据只来自 props.useProjection('buddyStats')（宿主已聚合，见 docs/session-view.md §3.2）
+    // 与三个可选内置投影（§3.3）；不 fetch、不折叠事件、不读 DOM。
+    // 样式一律内联 + --dsw-alias-* 主题变量，不依赖宿主 CSS 类。
+
+    const SESSION_OUTCOMES = ['completed', 'aborted', 'blocked', 'error', 'maxTokens', 'interrupted', 'forked']
+    const SESSION_TOOL_ROWS = 10
+    const SESSION_HOURS = 24
+
+    const SSV = {
+      page: {
+        width: '100%',
+        height: '100%',
+        minHeight: 0,
+        overflowY: 'auto',
+        overflowX: 'hidden',
+        boxSizing: 'border-box',
+        background: 'var(--dsw-alias-bg-base)',
+        color: 'var(--dsw-alias-label-primary)',
+        fontSize: 14,
+        lineHeight: 1.6,
+      },
+      inner: {
+        width: '100%',
+        maxWidth: 960,
+        margin: '0 auto',
+        padding: '20px clamp(16px,3vw,32px) 40px',
+        boxSizing: 'border-box',
+      },
+      card: {
+        background: 'var(--dsw-alias-bg-layer-1)',
+        border: '.5px solid var(--dsw-alias-border-l1)',
+        borderRadius: 16,
+        padding: '14px 16px',
+        minWidth: 0,
+        boxSizing: 'border-box',
+      },
+      grid: {
+        display: 'grid',
+        gap: 12,
+        gridTemplateColumns: 'repeat(auto-fit,minmax(148px,1fr))',
+      },
+      section: { marginTop: 20 },
+      sectionTitle: {
+        margin: '0 0 8px',
+        fontSize: 13,
+        fontWeight: 500,
+        color: 'var(--dsw-alias-label-secondary)',
+      },
+      sectionCount: {
+        marginLeft: 6,
+        fontSize: 12,
+        color: 'var(--dsw-alias-label-secondary)',
+        fontVariantNumeric: 'tabular-nums',
+      },
+      row: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+        minWidth: 0,
+        padding: '7px 0',
+        borderTop: '.5px solid var(--dsw-alias-border-l1)',
+      },
+      dim: { color: 'var(--dsw-alias-label-secondary)' },
+      num: { fontVariantNumeric: 'tabular-nums' },
+      empty: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 8,
+        padding: '56px 20px',
+        textAlign: 'center',
+        color: 'var(--dsw-alias-label-secondary)',
+        fontSize: 13,
+      },
+    }
+
+    /** t() 包装：优先用注册项 locale 注入的绑定 t，缺失时回退到内置字典。 */
+    function sessionTranslate(props) {
+      const injected = props && props.t
+      return (key, params) => {
+        if (typeof injected === 'function') {
+          try {
+            const value = injected(key, params)
+            if (typeof value === 'string' && value !== '' && value !== key) return value
+          } catch {
+            // 注入的 t 抛错时继续走本地字典，保证页面不白屏。
+          }
+        }
+        const template = DICTS.zh[key] !== undefined ? DICTS.zh[key] : DICTS.en[key]
+        if (typeof template !== 'string') return key
+        if (!params) return template
+        return template.replace(/\{(\w+)\}/g, (match, name) => (name in params ? String(params[name]) : match))
+      }
+    }
+
+    /** 读投影：key 不存在 / useProjection 缺失 / 取值抛错 → undefined（隐藏该区块）。 */
+    function readProjection(useProjection, key) {
+      if (typeof useProjection !== 'function') return undefined
+      try {
+        const value = useProjection(key)
+        return value === null ? undefined : value
+      } catch {
+        return undefined
+      }
+    }
+
+    function num(value) {
+      const n = Number(value)
+      return Number.isFinite(n) ? n : 0
+    }
+
+    function fmtDateTime(ms) {
+      const value = num(ms)
+      if (value <= 0) return '-'
+      try {
+        return new Date(value).toLocaleString(undefined, {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+      } catch {
+        return '-'
+      }
+    }
+
+    /** buddyStats wire（§3.2）规范化：字段缺失一律补 0，绝不抛错。 */
+    function normalizeSessionStats(value) {
+      if (!value || typeof value !== 'object') return null
+      const tokens = value.tokens && typeof value.tokens === 'object' ? value.tokens : {}
+      const wire = {
+        id: typeof value.id === 'string' ? value.id : '',
+        title: typeof value.title === 'string' ? value.title : '',
+        cwd: typeof value.cwd === 'string' ? value.cwd : '',
+        parent: typeof value.parent === 'string' ? value.parent : '',
+        origin: typeof value.origin === 'string' ? value.origin : '',
+        preset: typeof value.preset === 'string' ? value.preset : '',
+        createdAt: num(value.createdAt),
+        first: num(value.first),
+        last: num(value.last),
+        spanMs: num(value.spanMs),
+        turns: num(value.turns),
+        steps: num(value.steps),
+        msgs: num(value.msgs),
+        toolCalls: num(value.toolCalls),
+        toolErrors: num(value.toolErrors),
+        linesAdded: num(value.linesAdded),
+        linesDeleted: num(value.linesDeleted),
+        apiMs: num(value.apiMs),
+        activeMs: num(value.activeMs),
+        compactions: num(value.compactions),
+        retries: num(value.retries),
+        costUsd: num(value.costUsd),
+        hasPricing: value.hasPricing === true,
+        tokens: {
+          input: num(tokens.input),
+          output: num(tokens.output),
+          cacheRead: num(tokens.cacheRead),
+          cacheWrite: num(tokens.cacheWrite),
+          reasoning: num(tokens.reasoning),
+          total: num(tokens.total),
+          cacheHitRate: num(tokens.cacheHitRate),
+        },
+        models: Array.isArray(value.models)
+          ? value.models
+              .filter((item) => item && typeof item === 'object')
+              .map((item) => ({
+                id: typeof item.id === 'string' ? item.id : '',
+                provider: typeof item.provider === 'string' ? item.provider : '',
+                calls: num(item.calls),
+                input: num(item.input),
+                output: num(item.output),
+                cacheRead: num(item.cacheRead),
+                cacheWrite: num(item.cacheWrite),
+                reasoning: num(item.reasoning),
+                total: num(item.total),
+                costUsd: num(item.costUsd),
+              }))
+          : [],
+        tools: Array.isArray(value.tools)
+          ? value.tools
+              .filter((item) => item && typeof item === 'object')
+              .map((item) => ({ name: typeof item.name === 'string' ? item.name : '', calls: num(item.calls) }))
+          : [],
+        hours: Array.from({ length: SESSION_HOURS }, (_, index) => num(Array.isArray(value.hours) ? value.hours[index] : 0)),
+        outcomes: SESSION_OUTCOMES.reduce((acc, key) => {
+          const outcomes = value.outcomes && typeof value.outcomes === 'object' ? value.outcomes : {}
+          acc[key] = num(outcomes[key])
+          return acc
+        }, {}),
+      }
+      const total = wire.tokens.total || wire.tokens.input + wire.tokens.output + wire.tokens.cacheRead + wire.tokens.cacheWrite
+      wire.tokens.total = total
+      wire.modelTotal = wire.models.reduce((sum, model) => sum + model.total, 0)
+      wire.toolSuccessRate =
+        wire.toolCalls > 0 ? Math.max(0, Math.min(100, ((wire.toolCalls - wire.toolErrors) / wire.toolCalls) * 100)) : null
+      wire.hoursMax = wire.hours.reduce((max, count) => Math.max(max, count), 0)
+      return wire
+    }
+
+    function SsBar({ value, tone = 'blue', height = 6 }) {
+      const width = Math.max(0, Math.min(100, num(value)))
+      return h(
+        'div',
+        {
+          style: {
+            height,
+            borderRadius: 999,
+            background: 'color-mix(in srgb,var(--dsw-alias-label-primary) 10%,transparent)',
+            overflow: 'hidden',
+            minWidth: 0,
+          },
+        },
+        h('span', {
+          style: { display: 'block', height: '100%', width: `${width}%`, borderRadius: 999, background: toneColor(tone) },
+        }),
+      )
+    }
+
+    function SsKpi({ icon, label, value, hint, tone = 'neutral' }) {
+      const color = toneColor(tone)
+      return h(
+        'div',
+        { style: SSV.card },
+        h(
+          'div',
+          { style: { display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 } },
+          icon
+            ? h(
+                'span',
+                {
+                  style: {
+                    width: 24,
+                    height: 24,
+                    flex: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: 8,
+                    color,
+                    background: `color-mix(in srgb, ${color} 12%, transparent)`,
+                  },
+                },
+                h(Icon, { name: icon, size: 13 }),
+              )
+            : null,
+          h(
+            'span',
+            {
+              style: {
+                fontSize: 12,
+                color: 'var(--dsw-alias-label-secondary)',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+              },
+              title: label,
+            },
+            label,
+          ),
+        ),
+        h(
+          'div',
+          {
+            style: { marginTop: 6, fontSize: 20, fontWeight: 600, letterSpacing: '-.01em', ...SSV.num },
+            title: String(value),
+          },
+          value,
+        ),
+        hint ? h('div', { style: { marginTop: 4, fontSize: 11.5, ...SSV.dim, ...SSV.num } }, hint) : null,
+      )
+    }
+
+    function SsSection({ title, count, actions, children }) {
+      return h(
+        'div',
+        { style: SSV.section },
+        h(
+          'div',
+          { style: { display: 'flex', alignItems: 'baseline', gap: 4, margin: '0 0 8px' } },
+          h('h2', { style: SSV.sectionTitle }, title),
+          count === undefined || count === null ? null : h('span', { style: SSV.sectionCount }, String(count)),
+          actions ? h('span', { style: { marginLeft: 'auto', fontSize: 12, ...SSV.dim, ...SSV.num } }, actions) : null,
+        ),
+        children,
+      )
+    }
+
+    function SsLegendRow({ label, value, percent, tone }) {
+      return h(
+        'div',
+        { style: { display: 'flex', alignItems: 'center', gap: 10, minWidth: 0, padding: '4px 0' } },
+        h('span', { style: { width: 8, height: 8, borderRadius: '50%', flex: 'none', background: toneColor(tone) } }),
+        h('span', { style: { flex: 1, minWidth: 0, fontSize: 13 } }, label),
+        h('span', { style: { fontSize: 13, fontWeight: 600, ...SSV.num } }, value),
+        h('span', { style: { width: 56, textAlign: 'right', fontSize: 12, ...SSV.dim, ...SSV.num } }, percent),
+      )
+    }
+
+    /** 列表行：首行不要顶部分隔线，其余行有。 */
+    function SsRowStyle(first) {
+      return first ? { ...SSV.row, borderTop: 0 } : SSV.row
+    }
+
+    /** 投影值必须是普通对象（数组/字符串/数字都视为缺失）。 */
+    function plainObject(value) {
+      return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+    }
+
+    function SessionStatsView(props) {
+      const source = props || {}
+      const tr = sessionTranslate(source)
+      const useProjection = source.useProjection
+
+      const stats = normalizeSessionStats(readProjection(useProjection, 'buddyStats'))
+      const pressureRaw = readProjection(useProjection, 'contextPressure')
+      const breakdownRaw = readProjection(useProjection, 'contextBreakdown')
+      const sessionStatsRaw = readProjection(useProjection, 'sessionStats')
+      const pressure = plainObject(pressureRaw) ? pressureRaw : undefined
+      const breakdown = plainObject(breakdownRaw) ? breakdownRaw : undefined
+      const sessionStats = plainObject(sessionStatsRaw) ? sessionStatsRaw : undefined
+
+      const derived = useMemo(() => {
+        if (!stats) return null
+        const total = stats.tokens.total
+        const composition = [
+          { key: 'input', label: tr('stats.input'), value: stats.tokens.input, tone: 'blue' },
+          { key: 'output', label: tr('stats.output'), value: stats.tokens.output, tone: 'green' },
+          { key: 'cacheRead', label: tr('stats.cacheRead'), value: stats.tokens.cacheRead, tone: 'orange' },
+          { key: 'cacheWrite', label: tr('stats.session.cacheWrite'), value: stats.tokens.cacheWrite, tone: 'purple' },
+          { key: 'reasoning', label: tr('stats.reasoning'), value: stats.tokens.reasoning, tone: 'neutral' },
+        ]
+        const pressureTokens = pressure ? num(pressure.projectedTokens !== undefined ? pressure.projectedTokens : pressure.pressureTokens) : 0
+        const contextWindow = pressure ? num(pressure.contextWindow) : 0
+        const hasPressure = Boolean(
+          pressure && (pressure.contextWindow !== undefined || pressure.pressureTokens !== undefined || pressure.projectedTokens !== undefined),
+        )
+        const parts = breakdown
+          ? [
+              { key: 'system', label: tr('stats.session.systemTokens'), value: num(breakdown.systemTokens), tone: 'blue' },
+              { key: 'tools', label: tr('stats.session.toolsTokens'), value: num(breakdown.toolsTokens), tone: 'orange' },
+              { key: 'messages', label: tr('stats.session.messageTokens'), value: num(breakdown.messageTokens), tone: 'green' },
+            ]
+          : []
+        const partsTotal = parts.reduce((sum, part) => sum + part.value, 0)
+        const outcomes = SESSION_OUTCOMES.map((key) => ({
+          key,
+          label: tr(`stats.session.outcome.${key}`),
+          value: stats.outcomes[key],
+        })).filter((item) => item.value > 0)
+        return {
+          composition,
+          total,
+          hasPressure,
+          pressureTokens,
+          contextWindow,
+          pressurePct: contextWindow > 0 ? Math.max(0, Math.min(100, (pressureTokens / contextWindow) * 100)) : 0,
+          parts,
+          partsTotal,
+          outcomes,
+          peakHour: stats.hoursMax > 0 ? stats.hours.indexOf(stats.hoursMax) : null,
+          toolMs: sessionStats ? num(sessionStats.toolMs) : null,
+          ttftMs: sessionStats ? num(sessionStats.ttftMs) : null,
+          ttftSteps: sessionStats ? num(sessionStats.ttftSteps) : 0,
+          decodeMs: sessionStats ? num(sessionStats.decodeMs) : 0,
+          decodeTokens: sessionStats ? num(sessionStats.decodeTokens) : 0,
+        }
+      }, [stats, pressure, breakdown, sessionStats, tr])
+
+      if (!stats || !derived) {
+        return h(
+          'div',
+          { style: SSV.page },
+          h(
+            'div',
+            { style: SSV.inner },
+            h(
+              'div',
+              { style: SSV.empty, role: 'status' },
+              h(Icon, { name: 'alert', size: 22, strokeWidth: 1.6 }),
+              h('strong', { style: { fontWeight: 500 } }, tr('stats.session.pending')),
+            ),
+          ),
+        )
+      }
+
+      const avgTokensPerStep = stats.steps > 0 ? stats.tokens.total / stats.steps : null
+      const avgTokensPerTurn = stats.turns > 0 ? stats.tokens.total / stats.turns : null
+      const avgStepMs = stats.steps > 0 ? stats.apiMs / stats.steps : null
+      const decodeRate = derived.decodeMs > 0 ? (derived.decodeTokens / derived.decodeMs) * 1000 : null
+
+      // ── 顶部 KPI ────────────────────────────────────────────────────────
+      const kpis = [
+        h(SsKpi, {
+          tone: 'blue',
+          icon: 'zap',
+          label: tr('stats.totalTokens'),
+          value: fmtNum(stats.tokens.total),
+          hint: `${tr('stats.input')} ${fmtNum(stats.tokens.input)} · ${tr('stats.output')} ${fmtNum(stats.tokens.output)}`,
+        }),
+        h(SsKpi, {
+          tone: 'green',
+          icon: 'timer',
+          label: tr('stats.cacheHitRate'),
+          value: `${stats.tokens.cacheHitRate.toFixed(1)}%`,
+          hint: `${tr('stats.cacheRead')} ${fmtNum(stats.tokens.cacheRead)}`,
+        }),
+        h(SsKpi, {
+          icon: 'refresh',
+          label: tr('stats.session.turns'),
+          value: String(stats.turns),
+          hint: avgTokensPerTurn === null ? '' : `${tr('stats.session.avgTokensPerTurn')} ${fmtNum(Math.round(avgTokensPerTurn))}`,
+        }),
+        h(SsKpi, {
+          icon: 'layers',
+          label: tr('stats.session.steps'),
+          value: String(stats.steps),
+          hint: avgTokensPerStep === null ? '' : `${tr('stats.session.avgTokensPerStep')} ${fmtNum(Math.round(avgTokensPerStep))}`,
+        }),
+        h(SsKpi, {
+          icon: 'chart',
+          label: tr('stats.messages'),
+          value: String(stats.msgs),
+          hint: `${tr('stats.toolCalls')} ${stats.toolCalls}`,
+        }),
+        h(SsKpi, {
+          tone: 'purple',
+          icon: 'spark',
+          label: tr('stats.session.apiMs'),
+          value: fmtDuration(stats.apiMs),
+          hint: avgStepMs === null ? '' : `${tr('stats.session.avgStepMs')} ${fmtDuration(Math.round(avgStepMs))}`,
+        }),
+        h(SsKpi, {
+          tone: derived.toolMs === null ? 'neutral' : 'orange',
+          icon: 'wrench',
+          label: tr('stats.session.toolMs'),
+          value: derived.toolMs === null ? tr('stats.na') : fmtDuration(derived.toolMs),
+          hint: derived.toolMs === null ? '' : `${tr('stats.toolCalls')} ${stats.toolCalls}`,
+        }),
+        h(SsKpi, {
+          tone: 'green',
+          icon: 'flame',
+          label: tr('stats.session.activeMs'),
+          value: fmtDuration(stats.activeMs),
+        }),
+        h(SsKpi, {
+          icon: 'calendar',
+          label: tr('stats.session.spanMs'),
+          value: fmtDuration(stats.spanMs),
+        }),
+        stats.hasPricing
+          ? h(SsKpi, {
+              tone: 'orange',
+              icon: 'star',
+              label: tr('stats.cost'),
+              value: `$${stats.costUsd.toFixed(2)}`,
+            })
+          : null,
+      ].filter(Boolean)
+
+      // ── Token 构成 ──────────────────────────────────────────────────────
+      const tokenSegments = derived.composition
+        .filter((item) => item.value > 0)
+        .map((item) => {
+          const share = derived.total > 0 ? (item.value / derived.total) * 100 : 0
+          return h(
+            'div',
+            { key: `seg-${item.key}`, style: { minWidth: 0, flex: `${Math.max(share, 0.8)} 1 0`, background: toneColor(item.tone), height: 8 } },
+          )
+        })
+      const tokenSection = h(
+        SsSection,
+        { title: tr('stats.session.tokenComposition'), actions: `${tr('stats.session.colTotal')} ${fmtNum(derived.total)}` },
+        h(
+          'div',
+          { style: SSV.card },
+          h(
+            'div',
+            {
+              style: {
+                display: 'flex',
+                width: '100%',
+                height: 8,
+                borderRadius: 999,
+                overflow: 'hidden',
+                background: 'color-mix(in srgb,var(--dsw-alias-label-primary) 10%,transparent)',
+              },
+            },
+            tokenSegments,
+          ),
+          h(
+            'div',
+            { style: { marginTop: 8 } },
+            derived.composition.map((item) =>
+              h(SsLegendRow, {
+                key: item.key,
+                label: item.label,
+                value: fmtNum(item.value),
+                percent: `${(derived.total > 0 ? (item.value / derived.total) * 100 : 0).toFixed(1)}%`,
+                tone: item.tone,
+              }),
+            ),
+          ),
+        ),
+      )
+
+      // ── 上下文占用 / 组成（官方投影可能缺失）────────────────────────────
+      const contextSection = derived.hasPressure || derived.parts.length > 0
+        ? h(
+            SsSection,
+            { title: tr('stats.session.context') },
+            h(
+              'div',
+              { style: SSV.card },
+              derived.hasPressure
+                ? h(
+                    'div',
+                    null,
+                    h(
+                      'div',
+                      { style: { display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 6 } },
+                      h(
+                        'span',
+                        { style: { marginLeft: 'auto', fontSize: 13, fontWeight: 600, ...SSV.num } },
+                        derived.contextWindow > 0
+                          ? tr('stats.session.contextUsage', {
+                              used: fmtNum(derived.pressureTokens),
+                              total: fmtNum(derived.contextWindow),
+                            })
+                          : fmtNum(derived.pressureTokens),
+                      ),
+                      h('span', { style: { fontSize: 12, ...SSV.dim, ...SSV.num } }, `${derived.pressurePct.toFixed(1)}%`),
+                    ),
+                    h(SsBar, {
+                      value: derived.pressurePct,
+                      tone: derived.pressurePct >= 85 ? 'red' : derived.pressurePct >= 60 ? 'orange' : 'blue',
+                      height: 8,
+                    }),
+                  )
+                : null,
+              derived.parts.length > 0
+                ? h(
+                    'div',
+                    { style: { marginTop: derived.hasPressure ? 14 : 0 } },
+                    h('div', { style: { fontSize: 12, ...SSV.dim, marginBottom: 6 } }, tr('stats.session.contextComposition')),
+                    derived.parts.map((part) =>
+                      h(
+                        'div',
+                        { key: part.key, style: { marginTop: 6 } },
+                        h(
+                          'div',
+                          { style: { display: 'flex', alignItems: 'baseline', gap: 8 } },
+                          h('span', { style: { flex: 1, minWidth: 0, fontSize: 12.5 } }, part.label),
+                          h('span', { style: { fontSize: 12.5, fontWeight: 600, ...SSV.num } }, fmtNum(part.value)),
+                          h(
+                            'span',
+                            { style: { width: 52, textAlign: 'right', fontSize: 11.5, ...SSV.dim, ...SSV.num } },
+                            `${(derived.partsTotal > 0 ? (part.value / derived.partsTotal) * 100 : 0).toFixed(1)}%`,
+                          ),
+                        ),
+                        h('div', { style: { marginTop: 4 } }, h(SsBar, { value: derived.partsTotal > 0 ? (part.value / derived.partsTotal) * 100 : 0, tone: part.tone })),
+                      ),
+                    ),
+                  )
+                : null,
+            ),
+          )
+        : null
+
+      // ── 模型明细 ────────────────────────────────────────────────────────
+      const modelSection = stats.models.length > 0
+        ? h(
+            SsSection,
+            { title: tr('stats.session.modelDetail'), count: stats.models.length },
+            h(
+              'div',
+              { style: { ...SSV.card, padding: '4px 16px' } },
+              stats.models.map((model, index) => {
+                const share = stats.modelTotal > 0 ? (model.total / stats.modelTotal) * 100 : 0
+                const tone = SERIES_TONES[index % SERIES_TONES.length] || 'blue'
+                return h(
+                  'div',
+                  { key: model.id || `model-${index}`, style: SsRowStyle(index === 0) },
+                  h(
+                    'div',
+                    { style: { flex: 1, minWidth: 0 } },
+                    h(
+                      'div',
+                      { style: { display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 } },
+                      h('span', { style: { width: 8, height: 8, borderRadius: '50%', flex: 'none', background: toneColor(tone) } }),
+                      h(
+                        'span',
+                        {
+                          style: { flex: 1, minWidth: 0, fontSize: 13, fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' },
+                          title: model.provider ? `${model.id} · ${model.provider}` : model.id,
+                        },
+                        shortModel(model.id),
+                      ),
+                      h('span', { style: { fontSize: 13, fontWeight: 600, ...SSV.num } }, fmtNum(model.total)),
+                      h('span', { style: { width: 52, textAlign: 'right', fontSize: 12, ...SSV.dim, ...SSV.num } }, `${share.toFixed(1)}%`),
+                    ),
+                    h(
+                      'div',
+                      { style: { display: 'flex', flexWrap: 'wrap', gap: '2px 14px', marginTop: 6, fontSize: 11.5, ...SSV.dim, ...SSV.num } },
+                      h('span', null, `${tr('stats.session.colCalls')} `, h('b', { style: { color: 'var(--dsw-alias-label-primary)' } }, String(model.calls))),
+                      h('span', null, `${tr('stats.input')} `, h('b', { style: { color: 'var(--dsw-alias-label-primary)' } }, fmtNum(model.input))),
+                      h('span', null, `${tr('stats.output')} `, h('b', { style: { color: 'var(--dsw-alias-label-primary)' } }, fmtNum(model.output))),
+                      h('span', null, `${tr('stats.cacheRead')} `, h('b', { style: { color: 'var(--dsw-alias-label-primary)' } }, fmtNum(model.cacheRead))),
+                      h('span', null, `${tr('stats.session.cacheWrite')} `, h('b', { style: { color: 'var(--dsw-alias-label-primary)' } }, fmtNum(model.cacheWrite))),
+                      model.reasoning > 0
+                        ? h('span', null, `${tr('stats.reasoning')} `, h('b', { style: { color: 'var(--dsw-alias-label-primary)' } }, fmtNum(model.reasoning)))
+                        : null,
+                      stats.hasPricing
+                        ? h('span', null, `${tr('stats.cost')} `, h('b', { style: { color: 'var(--dsw-alias-label-primary)' } }, `$${model.costUsd.toFixed(2)}`))
+                        : null,
+                    ),
+                    h('div', { style: { marginTop: 6 } }, h(SsBar, { value: share, tone, height: 5 })),
+                  ),
+                )
+              }),
+            ),
+          )
+        : null
+
+      // ── 工具排行 ────────────────────────────────────────────────────────
+      const toolRows = stats.tools.slice(0, SESSION_TOOL_ROWS)
+      const toolTop = toolRows.reduce((max, row) => Math.max(max, row.calls), 0)
+      const toolSection = toolRows.length > 0
+        ? h(
+            SsSection,
+            {
+              title: tr('stats.session.tools'),
+              count: toolRows.length,
+              actions: `${tr('stats.session.toolErrors')} ${stats.toolErrors} · ${tr('stats.session.toolSuccess')} ${
+                stats.toolSuccessRate === null ? tr('stats.na') : `${stats.toolSuccessRate.toFixed(1)}%`
+              }`,
+            },
+            h(
+              'div',
+              { style: { ...SSV.card, padding: '6px 16px' } },
+              toolRows.map((row, index) =>
+                h(
+                  'div',
+                  {
+                    key: row.name || `tool-${index}`,
+                    style: { ...SsRowStyle(index === 0), gap: 12 },
+                    title: `${row.name}: ${row.calls}`,
+                  },
+                  h(
+                    'span',
+                    { style: { width: 18, flex: 'none', textAlign: 'right', fontSize: 11, fontWeight: 600, ...SSV.dim, ...SSV.num } },
+                    String(index + 1),
+                  ),
+                  h(
+                    'span',
+                    {
+                      style: {
+                        width: 132,
+                        flex: 'none',
+                        fontFamily: 'ui-monospace,SFMono-Regular,Menlo,monospace',
+                        fontSize: 12,
+                        ...SSV.dim,
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      },
+                    },
+                    row.name,
+                  ),
+                  h('div', { style: { flex: 1, minWidth: 0 } }, h(SsBar, { value: toolTop > 0 ? (row.calls / toolTop) * 100 : 0, tone: index < 3 ? 'blue' : 'neutral', height: 8 })),
+                  h('span', { style: { width: 56, flex: 'none', textAlign: 'right', fontSize: 12, fontWeight: 600, ...SSV.num } }, fmtNum(row.calls)),
+                ),
+              ),
+            ),
+          )
+        : null
+
+      // ── 回合结果分布（只显示非零项）─────────────────────────────────────
+      const outcomeSection = derived.outcomes.length > 0
+        ? h(
+            SsSection,
+            { title: tr('stats.session.outcomes'), count: stats.turns },
+            h(
+              'div',
+              { style: SSV.card },
+              h(
+                'div',
+                { style: { display: 'flex', flexWrap: 'wrap', gap: 8 } },
+                derived.outcomes.map((item) =>
+                  h(
+                    'span',
+                    {
+                      key: item.key,
+                      style: {
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 6,
+                        padding: '3px 10px',
+                        borderRadius: 999,
+                        fontSize: 12,
+                        border: '.5px solid var(--dsw-alias-border-l1)',
+                        background: 'var(--dsw-alias-bg-layer-2)',
+                        ...SSV.num,
+                      },
+                    },
+                    h('span', { style: SSV.dim }, item.label),
+                    h('b', { style: { fontWeight: 600 } }, String(item.value)),
+                  ),
+                ),
+              ),
+            ),
+          )
+        : null
+
+      // ── 文件增删行 + 压缩/重试 ──────────────────────────────────────────
+      const fileSection = h(
+        SsSection,
+        { title: tr('stats.session.files') },
+        h(
+          'div',
+          { style: SSV.grid },
+          h(SsKpi, {
+            tone: 'green',
+            icon: 'spark',
+            label: tr('stats.session.linesAdded'),
+            value: `+${stats.linesAdded}`,
+          }),
+          h(SsKpi, {
+            tone: 'red',
+            icon: 'spark',
+            label: tr('stats.session.linesDeleted'),
+            value: `-${stats.linesDeleted}`,
+          }),
+          h(SsKpi, {
+            tone: stats.compactions > 0 ? 'orange' : 'neutral',
+            icon: 'layers',
+            label: tr('stats.session.compactions'),
+            value: String(stats.compactions),
+          }),
+          h(SsKpi, {
+            tone: stats.retries > 0 ? 'orange' : 'neutral',
+            icon: 'refresh',
+            label: tr('stats.session.retries'),
+            value: String(stats.retries),
+          }),
+        ),
+      )
+
+      // ── 按小时活动分布（24 桶）──────────────────────────────────────────
+      const hoursSection = h(
+        SsSection,
+        {
+          title: tr('stats.session.hours'),
+          actions: derived.peakHour === null ? '' : `${tr('stats.peakHour')} ${derived.peakHour}:00`,
+        },
+        h(
+          'div',
+          { style: { ...SSV.card, display: 'flex', alignItems: 'flex-end', gap: 3, height: 88 } },
+          stats.hours.map((count, hour) =>
+            h(
+              'div',
+              {
+                key: `hour-${hour}`,
+                title: tr('stats.session.hourBucket', { hour, count }),
+                'aria-label': tr('stats.session.hourBucket', { hour, count }),
+                style: {
+                  flex: '1 1 0',
+                  minWidth: 0,
+                  height: count > 0 && stats.hoursMax > 0 ? `${Math.max(8, (count / stats.hoursMax) * 100)}%` : '4px',
+                  borderRadius: '4px 4px 2px 2px',
+                  background:
+                    count > 0 && stats.hoursMax > 0
+                      ? `color-mix(in srgb, ${toneColor('blue')} ${Math.round(35 + (count / stats.hoursMax) * 65)}%, var(--dsw-alias-bg-layer-2))`
+                      : 'color-mix(in srgb,var(--dsw-alias-label-primary) 10%,transparent)',
+                },
+              },
+            ),
+          ),
+        ),
+      )
+
+      // ── 会话元信息 ──────────────────────────────────────────────────────
+      const originLabel = stats.origin === 'subagent' ? tr('stats.session.originSubagent') : tr('stats.session.originMain')
+      const metaRows = [
+        [tr('stats.session.metaTitle'), stats.title],
+        [tr('stats.session.cwd'), stats.cwd],
+        [tr('stats.session.preset'), stats.preset],
+        [tr('stats.session.origin'), originLabel],
+        [tr('stats.session.parent'), stats.parent],
+        [tr('stats.session.createdAt'), fmtDateTime(stats.createdAt)],
+        [tr('stats.session.firstActive'), fmtDateTime(stats.first)],
+        [tr('stats.session.lastActive'), fmtDateTime(stats.last)],
+      ].filter((row) => row[1] !== undefined && row[1] !== null && row[1] !== '')
+      const metaSection = metaRows.length > 0
+        ? h(
+            SsSection,
+            { title: tr('stats.session.meta') },
+            h(
+              'div',
+              { style: { ...SSV.card, padding: '8px 16px' } },
+              metaRows.map((row, index) =>
+                h(
+                  'div',
+                  { key: row[0], style: { ...SsRowStyle(index === 0), gap: 12, fontSize: 12.5 } },
+                  h('span', { style: { width: 108, flex: 'none', ...SSV.dim } }, row[0]),
+                  h('span', { style: { flex: 1, minWidth: 0, wordBreak: 'break-all' }, title: String(row[1]) }, String(row[1])),
+                ),
+              ),
+            ),
+          )
+        : null
+
+      // ── 首字延迟 / 解码速度（sessionStats 可选）─────────────────────────
+      const latencySection = derived.ttftMs === null && decodeRate === null
+        ? null
+        : h(
+            SsSection,
+            { title: tr('stats.session.latency') },
+            h(
+              'div',
+              { style: SSV.grid },
+              derived.ttftMs === null || derived.ttftMs <= 0
+                ? null
+                : h(SsKpi, {
+                    icon: 'timer',
+                    label: tr('stats.session.ttft'),
+                    value: fmtDuration(derived.ttftMs),
+                    hint: derived.ttftSteps > 0 ? `${derived.ttftSteps}×` : '',
+                  }),
+              decodeRate === null
+                ? null
+                : h(SsKpi, {
+                    tone: 'green',
+                    icon: 'zap',
+                    label: tr('stats.session.decodeSpeed'),
+                    value: tr('stats.session.decodeRate', { value: decodeRate.toFixed(1) }),
+                    hint: fmtNum(derived.decodeTokens),
+                  }),
+            ),
+          )
+
+      const header = h(
+        'div',
+        { style: { display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: 8, marginBottom: 16, minWidth: 0 } },
+        h('h1', { style: { margin: 0, fontSize: 18, fontWeight: 600, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' } }, stats.title || tr('stats.session.tab')),
+        h('span', { style: { fontSize: 12, ...SSV.dim } }, stats.cwd || tr('stats.session.desc')),
+      )
+
+      return h(
+        'div',
+        { style: SSV.page },
+        h(
+          'div',
+          { style: SSV.inner },
+          header,
+          h('div', { style: SSV.grid }, kpis),
+          tokenSection,
+          contextSection,
+          modelSection,
+          toolSection,
+          outcomeSection,
+          fileSection,
+          hoursSection,
+          latencySection,
+          metaSection,
+        ),
+      )
+    }
+
     // ── 侧边栏图标 ────────────────────────────────────────────────────────
     function PanelIcon({ size }) {
       return h(
@@ -1401,6 +2387,25 @@ window.__ModuleLoader__.load({
             ),
           ),
         'buddy-stats: sidebar icon',
+      )
+
+      // 会话视图页签：不写 inject —— 框架会 assertNoPropOverlap(kit, injected)，
+      // 返回标准 prop 同名键（sessionId）会抛 SlotAssemblyError 导致页签挂不上。
+      ctx.effect(
+        () =>
+          ctx.slots.inject('conversation.view', () =>
+            ctx.slots.register(
+              {
+                name: 'conversation.view',
+                id: PANEL_ID,
+                order: 20,
+                locale: NS,
+                label: () => t('stats.session.tab'),
+              },
+              SessionStatsView,
+            ),
+          ),
+        'buddy-stats: session view tab',
       )
     }
 

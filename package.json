@@ -1,6 +1,6 @@
 {
   "name": "dsh-buddy-statistics",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "DSH 统计插件：复刻 CodeBuddy Code 的统计页，汇总本机会话的 Token、模型与工具使用情况",
@@ -51,11 +51,15 @@
       "inject": [
         "@deepseek-ai/dsh-client-locale",
         "@deepseek-ai/dsh-client-ui-layout",
-        "@deepseek-ai/dsh-client-ui-sidebar"
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-conversation"
       ]
     }
   },
   "scripts": {
-    "test": "node test/fold-check.mjs && node test/client-smoke.mjs"
+    "test": "node test/fold-purity.mjs && node test/projection-schema.mjs && node test/fold-check.mjs && node test/client-smoke.mjs && node test/session-view-render.mjs"
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
   }
 }

@@ -1,6 +1,6 @@
 /**
  * 离线自检：不依赖 DSH 运行时，直接从持久化日志解析事件，
- * 用与插件相同的 foldEvent / aggregate 折叠，打印统计值。
+ * 用与插件相同的 applySessionEvent / aggregate 折叠，打印统计值。
  *
  * 局限：离线拿不到 inheritedEventCount，所以只统计**根会话**
  * （根会话没有继承事件，数字可直接对照宿主的 rootOnly 口径）。
@@ -15,7 +15,7 @@ import path from 'node:path'
 import zlib from 'node:zlib'
 
 import { aggregate } from '../lib/aggregate.js'
-import { createState, foldEvent } from '../lib/collect.js'
+import { applySessionEvent, createSessionState } from '../lib/fold.js'
 
 const ROOT = process.argv[2] || path.join(process.env.DSH_HOME || path.join(process.env.HOME || '', '.dsh'), 'sessions')
 
@@ -74,9 +74,9 @@ for (const project of fs.readdirSync(ROOT)) {
     if (!header) continue
     // 只跑根会话：子代理与 fork 子会话有继承事件，离线无法判定切点。
     if (header.origin === 'subagent' || header.parentSession) continue
-    const state = createState(header)
-    const stepStarts = new Map()
-    for (const event of events) foldEvent(state, event, stepStarts)
+    // 折叠是纯函数：每次返回新 state（未关心的事件返回同一引用），必须接住返回值。
+    let state = createSessionState(header)
+    for (const event of events) state = applySessionEvent(state, event)
     summaries.push(state)
   }
 }
@@ -98,3 +98,25 @@ console.log('peak hour / day     :', stats.peakActivityHour, '/', stats.peakActi
 console.log('models              :', Object.keys(stats.modelUsage).length)
 console.log('top tools           :', stats.toolUsage.slice(0, 6))
 console.log('longest session     :', stats.longestSession && Math.round(stats.longestSession.duration / 1000) + 's', 'msgs', stats.longestSession && stats.longestSession.messageCount)
+
+// 新增计数器（契约 §4 新增行）的离线真值，便于人工核对：
+// turns/steps/apiMs/activeMs/compactions/retries/outcomes/toolErrors 只能这么看。
+const newCounters = summaries.reduce(
+  (acc, s) => {
+    acc.turns += s.turns || 0
+    acc.steps += s.steps || 0
+    acc.apiMs += s.apiMs || 0
+    acc.activeMs += s.activeMs || 0
+    acc.compactions += s.compactions || 0
+    acc.retries += s.retries || 0
+    acc.toolErrors += s.toolErrors || 0
+    for (const [kind, n] of Object.entries(s.outcomes || {})) acc.outcomes[kind] = (acc.outcomes[kind] || 0) + n
+    return acc
+  },
+  { turns: 0, steps: 0, apiMs: 0, activeMs: 0, compactions: 0, retries: 0, toolErrors: 0, outcomes: {} },
+)
+console.log('turns / steps       :', newCounters.turns, '/', newCounters.steps)
+console.log('apiMs / activeMs    :', Math.round(newCounters.apiMs / 1000) + 's', '/', Math.round(newCounters.activeMs / 1000) + 's')
+console.log('compactions / retries:', newCounters.compactions, '/', newCounters.retries)
+console.log('toolErrors          :', newCounters.toolErrors)
+console.log('outcomes            :', newCounters.outcomes)
